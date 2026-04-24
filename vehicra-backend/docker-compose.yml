@@ -1,0 +1,12 @@
+services:
+  vehicra-api:
+    build: .
+    container_name: vehicra-api
+    ports:
+      - "8000:8000"
+    env_file:
+      - .env
+    volumes:
+      - .:/app
+    command: uvicorn main:app --host 0.0.0.0 --port 8000 --reload
+    restart: always
